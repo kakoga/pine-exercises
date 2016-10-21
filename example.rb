@@ -147,14 +147,27 @@
 
 # Recusion - factorial
 
-def calculate_factorial number
-  if number < 0
-    "Please enter a positive number"
+# def calculate_factorial number
+#   if number < 0
+#     "Please enter a positive number"
+#   end
+#   if number == 0
+#     1
+#   else
+#     number * calculate_factorial(number-1)
+#   end
+# end
+# puts calculate_factorial(3)
+
+# Recursion - sorting algorithm
+def sorting_algorithm array
+  if array.length <= 1
+    return array
   end
-  if number == 0
-    1
-  else
-    number * calculate_factorial(number-1)
-  end
+  middle = array.pop
+  less = array.select { |e| e < middle }
+  more = array.select { |e| e >= middle }
+
+  sorting_algorithm(less) + [middle] + sorting_algorithm(more)
 end
-puts calculate_factorial(3)
+  puts(sorting_algorithm(["bear", "pear", "lima", "apple"]))
